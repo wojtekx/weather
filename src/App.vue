@@ -1,24 +1,39 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
     <router-view/>
   </div>
 </template>
+<script>
+import Result from "./components/Result";
+import Login from "./components/Login";
+import SignUp from "./components/SignUp";
+export default {
+   name: "App",
+  components: {
+    Result,
+    Login,
+    SignUp,
+  }
+}
+</script>
 
 <style>
+
+body{
+    margin: 0;
+    padding: 0;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background-image: linear-gradient(to bottom right, #a1cce0, #01050c);
+  height: 100vh;
+ 
 }
-#nav {
-  padding: 30px;
-}
+
 
 #nav a {
   font-weight: bold;
