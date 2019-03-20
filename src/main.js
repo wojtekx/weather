@@ -79,7 +79,7 @@ const store = new Vuex.Store({
     SET_DATA(state, data) {
       state.data = data;
     },
-    SET_DATA(state, data) {
+    MORE_DATA(state, data) {
       state.moreData = data;
     },
     SAVE_CITIES(state, cities) {
