@@ -8,8 +8,12 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "bootstrap": "^4.3.1",
+    "bootstrap-vue": "^2.0.0-rc.15",
     "firebase": "^5.9.0",
-    "vue": "^2.6.6",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.7",
+    "vue": "^2.6.10",
     "vue-axios": "^2.1.4",
     "vue-router": "^3.0.1",
     "vue-select": "^2.6.0",

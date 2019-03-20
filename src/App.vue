@@ -7,6 +7,8 @@
 import Result from "./components/Result";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 export default {
    name: "App",
   components: {
@@ -17,7 +19,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 body{
     margin: 0;
@@ -28,19 +30,10 @@ body{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  background-image: linear-gradient(to bottom right, #a1cce0, #01050c);
-  height: 100vh;
- 
+  color: black;
+  background-image: linear-gradient(to bottom right, #74d1fc, #525964);
+  height: auto;
+  min-height: 100vh;
 }
 
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>

@@ -3,7 +3,7 @@
          <h3>Sign in</h3>
          <input type="email" v-model="email" placeholder="Email"><br>
          <input type="password" v-model="password" placeholder="Password"><br>
-         <button @click="login">Connection</button>
+         <button class="btn btn-primary" @click="login">Connection</button>
          <p>You don't have an acount? You can  <router-link to="/SignUp">create one</router-link></p>
         
     </div>    
@@ -61,13 +61,13 @@ p{
     color: white;
 }
 p a{
-    text-decoration: underline;
     cursor: pointer;
+    color: #0000b9;
 }
 h3{
     color: white;
     margin: 0;
-    padding: 19px;
+    padding: 23px 0;
 }
 
 </style>
