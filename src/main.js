@@ -16,6 +16,7 @@ Vue.use(VueAxios, axios);
 const store = new Vuex.Store({
   state: {
     apiKey: "2a95b28d85da7537f3700af9254d76e7",
+    apiKey2: "a5fbabc049476ee882170752effe1fbc",
     cities: [],
     data: [],
     moreData:[],
@@ -44,7 +45,7 @@ const store = new Vuex.Store({
     seeMore({state, commit}, payload){
       axios
         .get(
-          `https://api.openweathermap.org/data/2.5/forecast?q=${payload}&units=metric&appid=${state.apiKey}`
+          `https://api.openweathermap.org/data/2.5/forecast?q=${payload}&units=metric&appid=${state.apiKey2}`
         )
         .then(r => r.data)
         .then(data => {
@@ -52,7 +53,6 @@ const store = new Vuex.Store({
           console.log(data);
           
         });
-        
     },
     saveCities({ commit }, payload) {
       commit('SAVE_CITIES', payload);
