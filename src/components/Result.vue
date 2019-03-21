@@ -11,7 +11,7 @@
     <div class="results-item" v-for="d in data.list" :key="d.id">
           <h4>{{ d.name }}</h4>
           <p>Temperature: {{ Math.round(d.main.temp) }}°C</p>
-          <p>Humidity: {{ d.main.humidity }}%</p>
+          <p>Humidity: {{ d.main.humidity }}</p>
 
          <div class="button-section">
             <button class="btn btn-info" v-on:click="more(d.name)">more</button>
@@ -19,6 +19,18 @@
          </div>
     </div>
   </main>
+      <div class="moreInfo none">
+        <button class="btn btn-danger" v-on:click="close()">powrót</button>
+        <div class="container col-10" >
+          <div class="box" v-for="temp in moreData.list" :key="temp.dt">
+            <p> {{temp.dt_txt}}</p>
+            <p>temp: {{Math.round(temp.main.temp)}}°C</p>
+            <p>humidity: {{temp.main.humidity}}% </p>
+            <p>pressure: {{Math.round(temp.main.pressure)}}hpa </p>
+            <p>wind: {{Math.round(temp.wind.speed)}}m/s </p>
+          </div>
+        </div>
+    </div>
  </div>
 </template>
 
@@ -60,6 +72,10 @@ export default {
     },
     more(name){
       this.$store.dispatch("seeMore", name );
+      document.querySelector('.moreInfo').classList.remove("none");
+    },
+    close(){
+      document.querySelector('.moreInfo').classList.add("none")
     },
      logout(){
         firebase.auth().signOut().then(()=>{
@@ -84,7 +100,7 @@ export default {
 
     });
   },
-  computed: mapState(["data", "cities"])
+  computed: mapState(["data", "cities", "moreData"])
 };
 </script>
 <style >
@@ -125,5 +141,50 @@ export default {
   .btn.btn-success{
     margin-top: 13px;
   }
+  .moreInfo {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    top:  0;
+    left: 50%;
+    transform: translate(-50%, 0 );
+    background-image: linear-gradient(to bottom right, #74d1fc, #525964);
+    padding: 35px;
+    border: 1px solid black;
+    width: 100%;
+    height: 100vh;
+  }
+  .none{
+    display: none;
+  }
+  .moreInfo .container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    box-shadow: 0 0 37px 2px #4141e9;
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .moreInfo h5{
+    font-size: 18px;
+    color: #00ff21cf;
+    margin-top: 10px;
+  }
+  .moreInfo button{
+    width: 100px;
+    margin: 50px auto 0;
+  }
+  .box {
+    border-bottom: 1px solid;
+    margin: 10px;
+    padding: 2px;
+    width: 100%;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+  }
+  
 
 </style>
