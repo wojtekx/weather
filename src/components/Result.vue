@@ -3,7 +3,7 @@
    <header class="header">
      <button v-on:click="logout()" class="btn btn-success">Logout</button>
      <div class="form">
-        <v-select class="select" :options="options" label="name" v-model="selected"></v-select>
+        <v-select class="select" :options="options" label="name" v-model="selected" placeholder="Select City"></v-select>
         <button class="btn btn-primary" v-on:click="addCity(selected.id)" >Add city</button>
      </div>
   </header>
@@ -14,12 +14,12 @@
           <p>Humidity: {{ d.main.humidity }}</p>
 
          <div class="button-section">
-            <button class="btn btn-info" v-on:click="more(d.name)">more</button>
+            <button class="btn btn-info" v-on:click="more(d.name)" ><a href="#moreInfo">more</a></button>
             <button class="btn btn-danger" v-on:click="delCity(d.id)">delete</button>
          </div>
     </div>
   </main>
-      <div class="moreInfo none">
+      <div id="moreInfo"  class="moreInfo none">
         <button class="btn btn-danger" v-on:click="close()">powrót</button>
         <div class="container col-10" >
           <div class="box" v-for="temp in moreData.list" :key="temp.dt">
@@ -104,14 +104,16 @@ export default {
 };
 </script>
 <style >
+
   body{
       margin: 0;
       padding: 0;
   }
   .v-select{
-    max-width: 30%;
+    max-width: 300px;
     margin: 10px auto;
   }
+ 
   button.clear{
     display: none;
   }
@@ -131,6 +133,10 @@ export default {
   }
   .dropdown-toggle::after{
     display: none!important;
+  }
+  .dropdown-menu{
+    background-color: #2142fa!important; 
+    color:white!important;
   }
   h4{
     padding-bottom: 10px;
@@ -167,6 +173,20 @@ export default {
     border-radius: 12px;
     padding: 16px;
   }
+  ::-webkit-scrollbar{
+    height: 10px;
+}
+::-webkit-scrollbar-track{
+    background-color:transparent;
+    border: 1px solid rgb(94, 89, 89);
+    border-radius: 50px;
+}
+::-webkit-scrollbar-thumb{
+    border-radius: 50px; 
+    -webkit-width:50;
+    background-color:#4141e9;
+    
+}
   .moreInfo h5{
     font-size: 18px;
     color: #00ff21cf;
@@ -185,6 +205,37 @@ export default {
     display: flex;
     justify-content: space-between;
   }
-  
+  button a{
+    color: white;
+  }
+  button a:hover{
+    text-decoration: none;
+    color: wheat;
+  }
+  @media(min-width:320px) and (max-width: 768px){
+      .results-item{
+        padding: 5px;
+        margin: 10px auto;
+        border: 1px solid black;
+        width: 220px;
+        font-size: 14px;
+        }
+      .moreInfo button{
+        margin: 10px auto 0;
+      }
+      .box{
+        flex-direction: column;
+        text-align: left;
+      }
+      .box p:first-child {
+        color: #0b1cff;
+        text-shadow: 0 0 1px black;
+      }
+  }
+   @media(min-width:768px) {
+     .box p {
+          margin: 0 10px;
+      }
+  }
 
 </style>

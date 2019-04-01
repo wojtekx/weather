@@ -50,8 +50,6 @@ const store = new Vuex.Store({
         .then(r => r.data)
         .then(data => {
           commit("MORE_DATA", data)
-          console.log(data);
-          
         });
     },
     saveCities({ commit }, payload) {

@@ -44,30 +44,49 @@ body{
     margin: 0;
     padding: 0;
 }
-
+.login{
+     padding-top: 25%;
+}
 input{
-    margin: 10px 0;
-    width: 20%;
-    padding: 15px;
+    margin: 20px 0;
+    width: 500px;
+    padding-top: 10px;
+    font-size: 15px;
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid black;
+    background: transparent;
+    outline: none;
+}
+input::placeholder {
+    color: white;
+    text-shadow: 0 0 2px black;
 }
 button{
     margin-top: 20px;
-    width: 10%;
+    width: 100px;
     cursor: pointer;
 }
 p{
     margin-top: 40px;
-    font-size: 13px;
+    font-size: 16px;
     color: white;
+    text-shadow: 0 0 2px black;
 }
 p a{
     cursor: pointer;
     color: #0000b9;
 }
 h3{
-    color: white;
+    color: #fdf047;;
+    text-shadow: 0 0 1px black;
     margin: 0;
     padding: 23px 0;
+}
+@media(min-width:320px) and (max-width: 768px){
+    input{
+       width: 300px;
+    }
 }
 
 </style>
