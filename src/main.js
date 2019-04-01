@@ -7,9 +7,7 @@ import VueAxios from "vue-axios";
 import vSelect from "vue-select";
 import firebase from 'firebase';
 
-
 Vue.component('v-select', vSelect)
-
 Vue.use(Vuex);
 Vue.use(VueAxios, axios);
 
@@ -58,7 +56,6 @@ const store = new Vuex.Store({
     deleteCity({ state, commit }, payload){
       let path = localStorage.getItem("name");
       let users = base.database().ref(`users/${path}/cities`);
-
       let newCities = [...state.cities].filter( e => e !== payload);
       
       if(!newCities.length){

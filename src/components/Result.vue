@@ -35,13 +35,11 @@
 </template>
 
 <script>
-
 import options from "@/assets/city.list.json";
 import { mapState } from "vuex";
 import Vue from 'vue';
 import firebase from 'firebase';
 import {base} from '@/main.js'
-
 
 export default {
   name: "Result",
@@ -57,9 +55,7 @@ export default {
       this.$store.dispatch("saveCity", this.selected.id);
       this.selected = "";
       const savedCities = [...this.$store.state.cities];
-
       this.options = this.options.filter(e => !savedCities.includes(e.id.toString()));
-
       this.$store.dispatch("getData");
     },
     delCity(item){
@@ -67,7 +63,6 @@ export default {
         const newOption = this.options2.filter(e => e.id.toString() === item.toString());
         this.options = [...this.options, ...newOption];
       });
-
       this.$store.dispatch("getData");
     },
     more(name){
@@ -89,13 +84,10 @@ export default {
   mounted() {
     let path = localStorage.getItem("name");
     let users = base.database().ref(`users/${path}`);
-
     users.on("value", data => {
       this.$store.dispatch("saveCities", data.val().cities);
       this.$store.dispatch("getData");
-
       const savedCities = [...this.$store.state.cities];
-
       this.options = this.options.filter(e => !savedCities.includes(e.id.toString()));
 
     });

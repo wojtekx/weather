@@ -5,7 +5,6 @@
          <input type="password" v-model="password" placeholder="Password"><br>
          <button class="btn btn-primary" @click="login">Connection</button>
          <p>You don't have an acount? You can  <router-link to="/SignUp">create one</router-link></p>
-        
     </div>    
 </template>
 
@@ -19,15 +18,13 @@ data(){
         email:'',
         password:'',
     }
-    
 },
 methods:{
     login:function(){
        firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
            (user) => {
                this.$router.replace('Result')
-             localStorage.setItem("name", user.user.uid)
-               
+               localStorage.setItem("name", user.user.uid)
            },
           (err) => {
                alert('Oops. '+ err.message)
@@ -35,7 +32,6 @@ methods:{
        )
     }
 },
-
 }
 </script>
 
@@ -45,7 +41,7 @@ body{
     padding: 0;
 }
 .login{
-     padding-top: 25%;
+     padding-top: 100px;
 }
 input{
     margin: 20px 0;

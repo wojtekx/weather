@@ -24,15 +24,13 @@ methods:{
         firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(this.email, this.password).then(
             (user) => {
                 alert('Your account has been created !');
-               localStorage.setItem("name", user.user.uid)
-                
+                localStorage.setItem("name", user.user.uid)
                 this.$router.replace('Result')
             },
             function(err){
                 alert('Oops. ' + err.message)
             }
         )
-        
     }
 }
 }
@@ -41,7 +39,7 @@ methods:{
 <style scoped>
 
 .sign-up{
-        padding-top: 25%;
+    padding-top: 100px;
 }
 h3{
     color: #fdf047;
